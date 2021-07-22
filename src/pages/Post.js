@@ -10,12 +10,11 @@ export default function Post() {
 
   const Post = async () => {
     var data = JSON.stringify({ body: body, title: title });
-
     await axios({
       method: "POST",
       url: `https://gorest.co.in/public/v1/users/${userid}/posts`,
       headers: {
-        Authorization: `Bearer 937a82656677dcca1fb88d9cb395276c09ef03b99453f96ce30bbf658c73a3ad`,
+        Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
         "Content-Type": "application/json",
       },
       data: data,
