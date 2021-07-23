@@ -12,7 +12,7 @@ export default function Users() {
   }, []);
 
   const FetchData = async () => {
-    const res = await axios
+   await axios
       .get(`https://gorest.co.in/public/v1/users`)
       .then((res) => setUsers(res.data.data))
       .catch((error) => console.log(error));
@@ -29,7 +29,7 @@ export default function Users() {
 
       <div className="container">
         {users.map((data) => (
-          <div className="card">
+          <div className="card" >
             <div>
               <p>{data.name}</p>
               <button
@@ -42,7 +42,7 @@ export default function Users() {
               >
                 <FiMail />
               </button>
-              {data.status == "active" ? (
+              {data.status === "active" ? (
                 <p>
                   {" "}
                   <Link to={`/users/${data.id}`}>view profile</Link>
