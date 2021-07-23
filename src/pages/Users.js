@@ -34,10 +34,10 @@ export default function Users() {
       </h1>
 
       <div className="container">
-        {users.map((data) => {
-          if (data.status === "active") {
-            return (
-              <div className="card" key={data.id}>
+        {users.map((data) => (
+          <div>
+            {data.status === "active" ? 
+              <div className="card">
                 <div className="card-content">
                   <div className="media">
                     <div className="media-left">
@@ -63,9 +63,7 @@ export default function Users() {
                   </div>
                 </div>
               </div>
-            );
-          } else if (data.status === "inactive") {
-            return (
+             : 
               <div
                 key={data.id}
                 className="card"
@@ -87,9 +85,9 @@ export default function Users() {
                   </div>
                 </div>
               </div>
-            );
-          }
-        })}
+            }
+          </div>
+        ))}
       </div>
     </div>
   );
