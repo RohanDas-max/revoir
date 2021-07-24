@@ -48,11 +48,11 @@ export default function Users() {
                     <div className="media-content">
                       <p className="title is-6">{data.name}</p>
 
-                      <a href={"mailto:" + data.email}>
                         <p style={{ fontSize: "20px" }}>
+                      <a href={"mailto:" + data.email}>
                           <FiMail />
-                        </p>
                       </a>
+                        </p>
                       <button
                         className="button is-success"
                         onClick={() => history.push(`/users/${data.id}`)}
