@@ -13,7 +13,7 @@ let history = useHistory()
 
   return (
     <div className="App ">
-     <h1> Hello REVOIR </h1>
+     <h1> Hello</h1>
     <p className="button"onClick={handleClick}> Please Click here!</p>
     </div>
   );
