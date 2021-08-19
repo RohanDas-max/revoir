@@ -22,14 +22,13 @@ export default function Profile() {
   const GetPost = async () => {
     await axios
       .get(`https://gorest.co.in/public/v1/users/${userid}/posts`)
-      .then((data) => setPosts(data.data.data[0]))
+      .then((data) => setPosts(data.data.data))
       .catch((error) => console.error(error));
   };
 
   return (
     <div style={{
       display: "flex",
-      height: "100vh",
       justifyContent: "center",
       alignItems: "center",
       flexDirection: "column"
@@ -57,20 +56,25 @@ export default function Profile() {
         </div>
       </article>
 
-      {posts ? (
+      {posts ? posts.map(post => 
+      
+      (
         
         <article className="message is-success is-mobile is-center">
            <div className="message-header">
             <p><p style={{color: "WindowText"}}>Posted by:</p> {" "}{detail.name}</p>
           </div>
           <div className="message-header">
-            <p><p style={{color: "WindowText"}}>Title:</p> {" "}{posts.title}</p>
+            <p><p style={{color: "WindowText"}}>Title:</p> {" "}{post.title}</p>
           </div>
           <div className="message-body">
-            <p><p style={{color: "WindowText"}}>Post: </p>{" "}{posts.body}</p>
+            <p><p style={{color: "WindowText"}}>Post: </p>{" "}{post.body}</p>
           </div>
         </article>
-      ) : (
+      )
+      )
+      : (
+      
         <article className="message is-warning is-mobile is-center">
           <div className="message-header">
             <p>No Post Found</p>
